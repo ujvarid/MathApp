@@ -23,7 +23,7 @@ namespace MathApp
             {
                 textBoxes[i] = new TextBox
                 {
-                    Location = new System.Drawing.Point(270 + (i % 3) * 100, 100 + (i / 3) * 100),
+                    Location = new System.Drawing.Point(320 + (i % 3) * 100, 100 + (i / 3) * 100),
                     Size = new System.Drawing.Size(100, 60),
                     Name = $"{i + 1}. Text Box",
                     TextAlign = HorizontalAlignment.Center
@@ -133,11 +133,11 @@ namespace MathApp
 
         private void MakeGJCompatible(double[,] matrix, double[,] identityMatrix)
         {
-            for(int i = 0; i < 3; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 for (int j = 0; j < 3; ++j)
                 {
-                    if(i == j)
+                    if (i == j)
                     {
                         continue;
                     }
@@ -215,21 +215,26 @@ namespace MathApp
 
 
 
-        private void InvBtn_Click(object sender, EventArgs e) 
+        private void InvBtn_Click(object sender, EventArgs e)
         {
             (bool l, double[,] matrix) = FillMatrix();
             if (!l)
             {
-                return; 
+                return;
             }
-            if(Determinant(matrix) == 0)
+            if (Determinant(matrix) == 0)
             {
                 MessageBox.Show("The determinant of the matrix is ​​zero, so it cannot be inverted.");
                 return;
             }
-            
+
 
             GaussJordan(matrix);
+        }
+
+        private void button2_Click(object sender, EventArgs e) // help button
+        {
+            MessageBox.Show("Transposing and inversing the matrix will change the matrix itself.");
         }
     }
 }

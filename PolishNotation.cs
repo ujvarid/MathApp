@@ -135,8 +135,8 @@ namespace EquationSolverApp
                             case "/":
                                 if (r == 0)
                                 {
-                                    MessageBox.Show("Error: Division by zero!");
-                                    break;
+                                    //MessageBox.Show("Error: Division by zero!"); // EZ ROSSZ, CSAK AKKOR KENE KIIRNI HA BENNE VAN, HOGY /0, HA VISZONT PÉLDÁUL /(X-1) AKKOR HA 1-HEZ ÉR AKKOR ÁT KÉNE UGRANIA, DE AZ A BAJ, HOGY A BOLZANO FELEZES CSAK FOLYTONOS FUGGVENYEN MUKODIK -> HA EZ VAN BRUTE FORCE KELL
+                                    throw new Exception("Division by zero");
                                 }
                                 V.Push(l / r);
                                 break;

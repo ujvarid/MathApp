@@ -1,7 +1,12 @@
-﻿namespace EquationSolverApp 
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace EquationSolverApp 
 {
     public partial class EquationSolver : Form
     {
+
+        private const int IVMAX = 99999;
+        private const int IVMIN = -99999;
         public EquationSolver()
         {
             InitializeComponent();
@@ -26,7 +31,15 @@
                 {
                     expression.Add(exp[i]);
                 }
-                Solving(expression);
+                try
+                {
+                    Solving(expression);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Bolzano's theorem cannot be applied to the given function, because the it is not continuous in the given interval.\nThe solving process will be slower and will only be able to give an integer solution");
+                    BruteForce(expression); // Bolzano's theorem cannot be applied, because the function is not continuous in the given interval
+                }
             }
             else
             {
@@ -34,9 +47,44 @@
             }
         }
 
+        private void BruteForce(List<string> expression)
+        {
+            List<string> expressionConst = new();
+
+            for (int i = 0; i < expression.Count; i++)
+            {
+                expressionConst.Add(expression[i]);
+            }
+
+            double evalResult;
+
+            for (int i = IVMIN; i < IVMAX; i++)
+            {
+                try
+                {
+                    evalResult = Evaluating(expressionConst, expression, i);
+                    if (evalResult == 0)
+                    {
+                        string expr = "";
+                        for (int j = 0; j < expressionConst.Count; j++) { expr += expressionConst[j]; }
+                        MessageBox.Show($"The equation:\n\n{expr} = 0\n\nThe solution: \n\nx = " + evalResult);
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+            MessageBox.Show("Sorry, I could not find an integer solution.");
+        }
+
         private (bool, string) CheckInput(string text)
         {
             string[] expr = text.Split(' ');
+            // 0-val osztás kiszűrése
+            if(text.Contains("/ 0")) { return (false, "The equation has a division with zero."); }
+            //
             if (!(IsWellParenthesized(expr))) { return (false, "The equation is not parenthesized well."); }
             if (string.IsNullOrEmpty(text)) { return (false, "The equation is empty."); }
             if (!text.Contains('x')) { return (false, "The equation does not contain an x variable."); }
@@ -99,9 +147,6 @@
         {
 
         }
-
-        private const int IVMAX = 99999;
-        private const int IVMIN = -99999;
 
         static void Solving(List<string> expression)
         {
@@ -235,7 +280,5 @@
         {
             this.Close();
         }
-
-
     }
 }
