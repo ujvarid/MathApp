@@ -60,16 +60,19 @@
             button1 = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
-            button3 = new Button();
             button2 = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom;
             button1.ImageAlign = ContentAlignment.TopCenter;
-            button1.Location = new Point(379, 241);
+            button1.Location = new Point(191, 466);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(95, 37);
+            button1.Size = new Size(109, 49);
             button1.TabIndex = 2;
             button1.Text = "Solve it!";
             button1.UseVisualStyleBackColor = true;
@@ -77,66 +80,73 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(250, 202);
+            textBox1.Anchor = AnchorStyles.Bottom;
+            textBox1.Location = new Point(48, 389);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(345, 23);
+            textBox1.Size = new Size(394, 27);
             textBox1.TabIndex = 1;
             textBox1.TextAlign = HorizontalAlignment.Center;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(305, 160);
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(114, 323);
             label1.Name = "label1";
             label1.Size = new Size(263, 28);
             label1.TabIndex = 2;
             label1.Text = "Enter an equation set to zero";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(759, 11);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(54, 22);
-            button3.TabIndex = 5;
-            button3.TabStop = false;
-            button3.Text = "Exit";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F);
-            button2.Location = new Point(12, 12);
+            button2.Location = new Point(14, 16);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(65, 24);
+            button2.Size = new Size(74, 32);
             button2.TabIndex = 6;
             button2.TabStop = false;
             button2.Text = "Help";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel1.Controls.Add(button1, 0, 2);
+            tableLayoutPanel1.Location = new Point(235, 12);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 83.57143F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4285717F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 98F));
+            tableLayoutPanel1.Size = new Size(491, 519);
+            tableLayoutPanel1.TabIndex = 7;
+            // 
             // EquationSolver
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            //BackColor = SystemColors.InactiveCaption;
-            ClientSize = new Size(825, 695);
+            ClientSize = new Size(943, 927);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(button2);
-            Controls.Add(button3);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "EquationSolver";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EquationSolver";
             Load += Form1_Load;
             Resize += Form1_Resize;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -144,7 +154,7 @@
         private Button button1;
         private TextBox textBox1;
         private Label label1;
-        private Button button3;
         private Button button2;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

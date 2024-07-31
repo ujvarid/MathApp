@@ -10,5 +10,11 @@
     <Compile Update="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NumAppE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NumericalApproximationMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

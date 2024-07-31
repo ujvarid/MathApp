@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             button2 = new Button();
-            button3 = new Button();
             DetermBtn = new Button();
             TrpBtn = new Button();
             InvBtn = new Button();
@@ -38,32 +37,22 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F);
-            button2.Location = new Point(12, 12);
+            button2.Location = new Point(14, 16);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(65, 24);
+            button2.Size = new Size(74, 32);
             button2.TabIndex = 8;
             button2.TabStop = false;
             button2.Text = "Help";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.Location = new Point(762, 11);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(54, 22);
-            button3.TabIndex = 9;
-            button3.TabStop = false;
-            button3.Text = "Exit";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // DetermBtn
             // 
-            DetermBtn.Location = new Point(336, 381);
+            DetermBtn.Location = new Point(384, 508);
+            DetermBtn.Margin = new Padding(3, 4, 3, 4);
             DetermBtn.Name = "DetermBtn";
-            DetermBtn.Size = new Size(164, 23);
+            DetermBtn.Size = new Size(187, 31);
             DetermBtn.TabIndex = 19;
             DetermBtn.Text = "Calculate determinant";
             DetermBtn.UseVisualStyleBackColor = true;
@@ -71,9 +60,10 @@
             // 
             // TrpBtn
             // 
-            TrpBtn.Location = new Point(336, 410);
+            TrpBtn.Location = new Point(384, 547);
+            TrpBtn.Margin = new Padding(3, 4, 3, 4);
             TrpBtn.Name = "TrpBtn";
-            TrpBtn.Size = new Size(164, 23);
+            TrpBtn.Size = new Size(187, 31);
             TrpBtn.TabIndex = 20;
             TrpBtn.Text = "Transpose the matrix";
             TrpBtn.UseVisualStyleBackColor = true;
@@ -81,9 +71,10 @@
             // 
             // InvBtn
             // 
-            InvBtn.Location = new Point(336, 439);
+            InvBtn.Location = new Point(384, 585);
+            InvBtn.Margin = new Padding(3, 4, 3, 4);
             InvBtn.Name = "InvBtn";
-            InvBtn.Size = new Size(164, 23);
+            InvBtn.Size = new Size(187, 31);
             InvBtn.TabIndex = 21;
             InvBtn.Text = "Inverse the matrix";
             InvBtn.UseVisualStyleBackColor = true;
@@ -91,14 +82,14 @@
             // 
             // MatrixCalculator
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(828, 698);
+            ClientSize = new Size(943, 927);
             Controls.Add(InvBtn);
             Controls.Add(TrpBtn);
             Controls.Add(DetermBtn);
-            Controls.Add(button3);
             Controls.Add(button2);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MatrixCalculator";
             Text = "MatrixCalculator";
             ResumeLayout(false);
@@ -107,7 +98,6 @@
         #endregion
 
         private Button button2;
-        private Button button3;
         private Button DetermBtn;
         private Button TrpBtn;
         private Button InvBtn;

@@ -1,6 +1,6 @@
 ﻿using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace EquationSolverApp 
+namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
 {
     public partial class EquationSolver : Form
     {
@@ -10,7 +10,10 @@ namespace EquationSolverApp
         public EquationSolver()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
+            Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            this.Text = "MathApp";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,7 +41,7 @@ namespace EquationSolverApp
                 catch (Exception)
                 {
                     MessageBox.Show("Bolzano's theorem cannot be applied to the given function, because the it is not continuous in the given interval.\nThe solving process will be slower and will only be able to give an integer solution");
-                    BruteForce(expression); // Bolzano's theorem cannot be applied, because the function is not continuous in the given interval
+                    BruteForce(expression); 
                 }
             }
             else

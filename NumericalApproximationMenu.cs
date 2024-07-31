@@ -1,10 +1,19 @@
-using EquationSolverApp;
+﻿using EquationSolverApp;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni a gombokat, matrixot stb
-{ // controlbar off, back buttonnek lenne ertelme
-    public partial class Menu : Form
+namespace MathApp
+{
+    public partial class NumericalApproximationMenu : Form
     {
-        public Menu()
+        public NumericalApproximationMenu()
         {
             InitializeComponent();
             Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -13,39 +22,9 @@ namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni 
             this.MaximizeBox = false;
         }
 
-        private void EqSolBtn_Click(object sender, EventArgs e)
+        private void EBtn_Click(object sender, EventArgs e)
         {
-            var frm = new EquationSolver();
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += (s, args) =>
-            {
-                this.Location = frm.Location;
-                FadeIn(this);
-                this.Show();
-            };
-            FadeIn(frm);
-            FadeOut(this);
-        }
-
-        private void MtClcBtn_Click(object sender, EventArgs e)
-        {
-            var frm = new MatrixCalculator();
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += (s, args) =>
-            {
-                this.Location = frm.Location;
-                FadeIn(this);
-                this.Show();
-            };
-            FadeIn(frm);
-            FadeOut(this);
-        }
-
-        private void NumAppBtn_Click(object sender, EventArgs e)
-        {
-            var frm = new NumericalApproximationMenu();
+            var frm = new NumAppE();
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += (s, args) =>
@@ -95,16 +74,6 @@ namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni 
                 }
             };
             timer.Start();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("   Choose from the menu.");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

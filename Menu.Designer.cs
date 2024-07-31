@@ -66,18 +66,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             EqSolBtn = new Button();
             MtClcBtn = new Button();
-            button3 = new Button();
             button2 = new Button();
+            NumAppBtn = new Button();
             SuspendLayout();
             // 
             // EqSolBtn
             // 
-            EqSolBtn.Location = new Point(377, 361);
+            EqSolBtn.Location = new Point(364, 360);
             EqSolBtn.Name = "EqSolBtn";
-            EqSolBtn.Size = new Size(205, 52);
+            EqSolBtn.Size = new Size(219, 52);
             EqSolBtn.TabIndex = 1;
             EqSolBtn.Text = "Equation Solver";
             EqSolBtn.UseVisualStyleBackColor = true;
@@ -85,24 +84,13 @@
             // 
             // MtClcBtn
             // 
-            MtClcBtn.Location = new Point(377, 440);
+            MtClcBtn.Location = new Point(364, 440);
             MtClcBtn.Name = "MtClcBtn";
-            MtClcBtn.Size = new Size(205, 52);
+            MtClcBtn.Size = new Size(219, 52);
             MtClcBtn.TabIndex = 2;
             MtClcBtn.Text = "Matrix Calculator";
             MtClcBtn.UseVisualStyleBackColor = true;
             MtClcBtn.Click += MtClcBtn_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(870, 15);
-            button3.Name = "button3";
-            button3.Size = new Size(62, 29);
-            button3.TabIndex = 6;
-            button3.TabStop = false;
-            button3.Text = "Exit";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -117,14 +105,23 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // NumAppBtn
+            // 
+            NumAppBtn.Location = new Point(364, 523);
+            NumAppBtn.Name = "NumAppBtn";
+            NumAppBtn.Size = new Size(219, 48);
+            NumAppBtn.TabIndex = 8;
+            NumAppBtn.Text = "Numerical Approximations";
+            NumAppBtn.UseVisualStyleBackColor = true;
+            NumAppBtn.Click += NumAppBtn_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(945, 929);
+            ClientSize = new Size(943, 927);
+            Controls.Add(NumAppBtn);
             Controls.Add(button2);
-            Controls.Add(button3);
             Controls.Add(MtClcBtn);
             Controls.Add(EqSolBtn);
             Name = "Menu";
@@ -136,7 +133,7 @@
         #endregion
         private Button EqSolBtn;
         private Button MtClcBtn;
-        private Button button3;
         private Button button2;
+        private Button NumAppBtn;
     }
 }

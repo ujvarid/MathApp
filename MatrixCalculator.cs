@@ -18,12 +18,15 @@ namespace MathApp
         public MatrixCalculator()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
+            Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            this.Text = "MathApp";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             for (int i = 0; i < 9; i++)
             {
                 textBoxes[i] = new TextBox
                 {
-                    Location = new System.Drawing.Point(320 + (i % 3) * 100, 100 + (i / 3) * 100),
+                    Location = new System.Drawing.Point(270 + (i % 3) * 100, 100 + (i / 3) * 100),
                     Size = new System.Drawing.Size(100, 60),
                     Name = $"{i + 1}. Text Box",
                     TextAlign = HorizontalAlignment.Center
