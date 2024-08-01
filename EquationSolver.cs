@@ -1,6 +1,6 @@
 ﻿using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
+namespace EquationSolverApp  
 {
     public partial class EquationSolver : Form
     {
@@ -41,7 +41,7 @@ namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
                 catch (Exception)
                 {
                     MessageBox.Show("Bolzano's theorem cannot be applied to the given function, because the it is not continuous in the given interval.\nThe solving process will be slower and will only be able to give an integer solution");
-                    BruteForce(expression); 
+                    BruteForce(expression);
                 }
             }
             else
@@ -52,6 +52,7 @@ namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
 
         private void BruteForce(List<string> expression)
         {
+            bool divisionByZero = true;
             List<string> expressionConst = new();
 
             for (int i = 0; i < expression.Count; i++)
@@ -73,11 +74,17 @@ namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
                         MessageBox.Show($"The equation:\n\n{expr} = 0\n\nThe solution: \n\nx = " + evalResult);
                         return;
                     }
+                    divisionByZero = false;
                 }
                 catch (Exception)
                 {
                     continue;
                 }
+            }
+            if (divisionByZero) 
+            {
+                MessageBox.Show("The equation has a division with zero.\n\nFor more, you can check the Help menu.");
+                return;
             }
             MessageBox.Show("Sorry, I could not find an integer solution.");
         }
@@ -85,9 +92,7 @@ namespace EquationSolverApp  // rossz: ( ( x * 2 ) - 6 ) / ( x - 65 )
         private (bool, string) CheckInput(string text)
         {
             string[] expr = text.Split(' ');
-            // 0-val osztás kiszűrése
             if(text.Contains("/ 0")) { return (false, "The equation has a division with zero."); }
-            //
             if (!(IsWellParenthesized(expr))) { return (false, "The equation is not parenthesized well."); }
             if (string.IsNullOrEmpty(text)) { return (false, "The equation is empty."); }
             if (!text.Contains('x')) { return (false, "The equation does not contain an x variable."); }

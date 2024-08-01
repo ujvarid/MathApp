@@ -32,6 +32,8 @@
             DetermBtn = new Button();
             TrpBtn = new Button();
             InvBtn = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // button2
@@ -49,7 +51,8 @@
             // 
             // DetermBtn
             // 
-            DetermBtn.Location = new Point(384, 508);
+            DetermBtn.Anchor = AnchorStyles.Top;
+            DetermBtn.Location = new Point(366, 4);
             DetermBtn.Margin = new Padding(3, 4, 3, 4);
             DetermBtn.Name = "DetermBtn";
             DetermBtn.Size = new Size(187, 31);
@@ -60,7 +63,8 @@
             // 
             // TrpBtn
             // 
-            TrpBtn.Location = new Point(384, 547);
+            TrpBtn.Anchor = AnchorStyles.Top;
+            TrpBtn.Location = new Point(366, 46);
             TrpBtn.Margin = new Padding(3, 4, 3, 4);
             TrpBtn.Name = "TrpBtn";
             TrpBtn.Size = new Size(187, 31);
@@ -71,7 +75,8 @@
             // 
             // InvBtn
             // 
-            InvBtn.Location = new Point(384, 585);
+            InvBtn.Anchor = AnchorStyles.Top;
+            InvBtn.Location = new Point(366, 88);
             InvBtn.Margin = new Padding(3, 4, 3, 4);
             InvBtn.Name = "InvBtn";
             InvBtn.Size = new Size(187, 31);
@@ -80,18 +85,33 @@
             InvBtn.UseVisualStyleBackColor = true;
             InvBtn.Click += InvBtn_Click;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(DetermBtn, 0, 0);
+            tableLayoutPanel1.Controls.Add(InvBtn, 0, 2);
+            tableLayoutPanel1.Controls.Add(TrpBtn, 0, 1);
+            tableLayoutPanel1.Location = new Point(12, 723);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            tableLayoutPanel1.Size = new Size(919, 125);
+            tableLayoutPanel1.TabIndex = 22;
+            // 
             // MatrixCalculator
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 927);
-            Controls.Add(InvBtn);
-            Controls.Add(TrpBtn);
-            Controls.Add(DetermBtn);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(button2);
             Margin = new Padding(3, 4, 3, 4);
             Name = "MatrixCalculator";
             Text = "MatrixCalculator";
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -101,5 +121,6 @@
         private Button DetermBtn;
         private Button TrpBtn;
         private Button InvBtn;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

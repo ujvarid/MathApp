@@ -26,11 +26,18 @@ namespace MathApp
             {
                 textBoxes[i] = new TextBox
                 {
-                    Location = new System.Drawing.Point(270 + (i % 3) * 100, 100 + (i / 3) * 100),
                     Size = new System.Drawing.Size(100, 60),
                     Name = $"{i + 1}. Text Box",
                     TextAlign = HorizontalAlignment.Center
                 };
+
+                // Calculate position as a percentage of the form's dimensions
+                int xPosition = (int)(0.25 * this.Width + (i % 3) * (0.2 * this.Width));
+                int yPosition = (int)(0.2 * this.Height + (i / 3) * (0.2 * this.Height));
+
+                textBoxes[i].Location = new System.Drawing.Point(xPosition, yPosition);
+
+                // Add to form controls
                 this.Controls.Add(textBoxes[i]);
             }
         }
