@@ -20,3 +20,4 @@ C:\Users\ujvar\OneDrive\Dokumentumok\Projektek\MathApp\obj\Debug\net8.0-windows\
 C:\Users\ujvar\OneDrive\Dokumentumok\Projektek\MathApp\obj\Debug\net8.0-windows\MathApp.NumericalApproximationMenu.resources
 C:\Users\ujvar\OneDrive\Dokumentumok\Projektek\MathApp\obj\Debug\net8.0-windows\MathApp.NumAppE.resources
 C:\Users\ujvar\OneDrive\Dokumentumok\Projektek\MathApp\obj\Debug\net8.0-windows\MathApp.NumAppPi.resources
+C:\Users\ujvar\OneDrive\Dokumentumok\Projektek\MathApp\obj\Debug\net8.0-windows\MathApp.TwoVarSolver.resources

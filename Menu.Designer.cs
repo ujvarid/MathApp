@@ -70,11 +70,15 @@
             MtClcBtn = new Button();
             button2 = new Button();
             NumAppBtn = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            TwoVarBtn = new Button();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // EqSolBtn
             // 
-            EqSolBtn.Location = new Point(364, 360);
+            EqSolBtn.Anchor = AnchorStyles.Top;
+            EqSolBtn.Location = new Point(350, 3);
             EqSolBtn.Name = "EqSolBtn";
             EqSolBtn.Size = new Size(219, 52);
             EqSolBtn.TabIndex = 1;
@@ -84,10 +88,11 @@
             // 
             // MtClcBtn
             // 
-            MtClcBtn.Location = new Point(364, 440);
+            MtClcBtn.Anchor = AnchorStyles.Top;
+            MtClcBtn.Location = new Point(350, 193);
             MtClcBtn.Name = "MtClcBtn";
             MtClcBtn.Size = new Size(219, 52);
-            MtClcBtn.TabIndex = 2;
+            MtClcBtn.TabIndex = 3;
             MtClcBtn.Text = "Matrix Calculator";
             MtClcBtn.UseVisualStyleBackColor = true;
             MtClcBtn.Click += MtClcBtn_Click;
@@ -107,26 +112,55 @@
             // 
             // NumAppBtn
             // 
-            NumAppBtn.Location = new Point(364, 523);
+            NumAppBtn.Anchor = AnchorStyles.Top;
+            NumAppBtn.Location = new Point(350, 285);
             NumAppBtn.Name = "NumAppBtn";
-            NumAppBtn.Size = new Size(219, 48);
-            NumAppBtn.TabIndex = 8;
+            NumAppBtn.Size = new Size(219, 52);
+            NumAppBtn.TabIndex = 4;
             NumAppBtn.Text = "Numerical Approximations";
             NumAppBtn.UseVisualStyleBackColor = true;
             NumAppBtn.Click += NumAppBtn_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(EqSolBtn, 0, 0);
+            tableLayoutPanel1.Controls.Add(NumAppBtn, 0, 3);
+            tableLayoutPanel1.Controls.Add(MtClcBtn, 0, 2);
+            tableLayoutPanel1.Controls.Add(TwoVarBtn, 0, 1);
+            tableLayoutPanel1.Location = new Point(12, 282);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 92F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel1.Size = new Size(919, 405);
+            tableLayoutPanel1.TabIndex = 9;
+            // 
+            // TwoVarBtn
+            // 
+            TwoVarBtn.Anchor = AnchorStyles.Top;
+            TwoVarBtn.Location = new Point(350, 98);
+            TwoVarBtn.Name = "TwoVarBtn";
+            TwoVarBtn.Size = new Size(219, 52);
+            TwoVarBtn.TabIndex = 2;
+            TwoVarBtn.Text = "Two Variable Equation Solver";
+            TwoVarBtn.UseVisualStyleBackColor = true;
+            TwoVarBtn.Click += TwoVarBtn_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 927);
-            Controls.Add(NumAppBtn);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(button2);
-            Controls.Add(MtClcBtn);
-            Controls.Add(EqSolBtn);
             Name = "Menu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -135,5 +169,7 @@
         private Button MtClcBtn;
         private Button button2;
         private Button NumAppBtn;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button TwoVarBtn;
     }
 }

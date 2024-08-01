@@ -58,6 +58,21 @@ namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni 
             FadeOut(this);
         }
 
+        private void TwoVarBtn_Click(object sender, EventArgs e)
+        {
+            var frm = new TwoVarSolver();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += (s, args) =>
+            {
+                this.Location = frm.Location;
+                FadeIn(this);
+                this.Show();
+            };
+            FadeIn(frm);
+            FadeOut(this);
+        }
+
         private void FadeIn(Form form, int duration = 300) // arra a helyre kene visszamennie ahol az elozot kinyomtak
         {
             form.Opacity = 0;

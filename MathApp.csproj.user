@@ -19,5 +19,8 @@
     <Compile Update="NumericalApproximationMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TwoVarSolver.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

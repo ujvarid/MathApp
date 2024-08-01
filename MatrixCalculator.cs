@@ -30,14 +30,9 @@ namespace MathApp
                     Name = $"{i + 1}. Text Box",
                     TextAlign = HorizontalAlignment.Center
                 };
-
-                // Calculate position as a percentage of the form's dimensions
                 int xPosition = (int)(0.25 * this.Width + (i % 3) * (0.2 * this.Width));
                 int yPosition = (int)(0.2 * this.Height + (i / 3) * (0.2 * this.Height));
-
                 textBoxes[i].Location = new System.Drawing.Point(xPosition, yPosition);
-
-                // Add to form controls
                 this.Controls.Add(textBoxes[i]);
             }
         }
@@ -219,7 +214,6 @@ namespace MathApp
                     }
                 }
             }
-
             FillTextBoxes(identityMatrix);
         }
 
