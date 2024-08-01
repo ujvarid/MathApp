@@ -159,7 +159,8 @@
             constant2TextBox.Margin = new Padding(3, 2, 3, 2);
             constant2TextBox.Name = "constant2TextBox";
             constant2TextBox.Size = new Size(110, 23);
-            constant2TextBox.TabIndex = 3;
+            constant2TextBox.TabIndex = 5;
+            constant2TextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // y2TextBox
             // 
@@ -168,7 +169,8 @@
             y2TextBox.Margin = new Padding(3, 2, 3, 2);
             y2TextBox.Name = "y2TextBox";
             y2TextBox.Size = new Size(110, 23);
-            y2TextBox.TabIndex = 2;
+            y2TextBox.TabIndex = 4;
+            y2TextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // x2TextBox
             // 
@@ -177,7 +179,8 @@
             x2TextBox.Margin = new Padding(3, 2, 3, 2);
             x2TextBox.Name = "x2TextBox";
             x2TextBox.Size = new Size(121, 23);
-            x2TextBox.TabIndex = 1;
+            x2TextBox.TabIndex = 3;
+            x2TextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -221,6 +224,7 @@
             x1TextBox.Name = "x1TextBox";
             x1TextBox.Size = new Size(121, 23);
             x1TextBox.TabIndex = 0;
+            x1TextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // y1TextBox
             // 
@@ -230,6 +234,7 @@
             y1TextBox.Name = "y1TextBox";
             y1TextBox.Size = new Size(110, 23);
             y1TextBox.TabIndex = 1;
+            y1TextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // constant1TextBox
             // 
@@ -239,6 +244,7 @@
             constant1TextBox.Name = "constant1TextBox";
             constant1TextBox.Size = new Size(110, 23);
             constant1TextBox.TabIndex = 2;
+            constant1TextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -274,7 +280,9 @@
             yValueTextBox.Name = "yValueTextBox";
             yValueTextBox.ReadOnly = true;
             yValueTextBox.Size = new Size(100, 23);
-            yValueTextBox.TabIndex = 1;
+            yValueTextBox.TabIndex = 7;
+            yValueTextBox.TabStop = false;
+            yValueTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // xValueTextBox
             // 
@@ -283,7 +291,9 @@
             xValueTextBox.Name = "xValueTextBox";
             xValueTextBox.ReadOnly = true;
             xValueTextBox.Size = new Size(100, 23);
-            xValueTextBox.TabIndex = 0;
+            xValueTextBox.TabIndex = 6;
+            xValueTextBox.TabStop = false;
+            xValueTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // SolveBtn
             // 
@@ -292,9 +302,10 @@
             SolveBtn.Location = new Point(364, 513);
             SolveBtn.Name = "SolveBtn";
             SolveBtn.Size = new Size(75, 32);
-            SolveBtn.TabIndex = 3;
+            SolveBtn.TabIndex = 8;
             SolveBtn.Text = "Solve it!";
             SolveBtn.UseVisualStyleBackColor = true;
+            SolveBtn.Click += SolveBtn_Click;
             // 
             // TwoVarSolver
             // 
