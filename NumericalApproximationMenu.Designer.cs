@@ -38,9 +38,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(367, 163);
+            label1.Location = new Point(321, 122);
             label1.Name = "label1";
-            label1.Size = new Size(239, 20);
+            label1.Size = new Size(191, 15);
             label1.TabIndex = 0;
             label1.Text = "Choose something to approximate";
             // 
@@ -50,20 +50,22 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(EBtn, 0, 1);
             tableLayoutPanel1.Controls.Add(PiBtn, 0, 2);
-            tableLayoutPanel1.Location = new Point(423, 257);
+            tableLayoutPanel1.Location = new Point(370, 193);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 66.6666641F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
-            tableLayoutPanel1.Size = new Size(103, 140);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
+            tableLayoutPanel1.Size = new Size(90, 105);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // EBtn
             // 
-            EBtn.Location = new Point(3, 28);
+            EBtn.Location = new Point(3, 20);
+            EBtn.Margin = new Padding(3, 2, 3, 2);
             EBtn.Name = "EBtn";
-            EBtn.Size = new Size(97, 38);
+            EBtn.Size = new Size(84, 28);
             EBtn.TabIndex = 0;
             EBtn.Text = "e";
             EBtn.UseVisualStyleBackColor = true;
@@ -71,20 +73,23 @@
             // 
             // PiBtn
             // 
-            PiBtn.Location = new Point(3, 78);
+            PiBtn.Location = new Point(3, 57);
+            PiBtn.Margin = new Padding(3, 2, 3, 2);
             PiBtn.Name = "PiBtn";
-            PiBtn.Size = new Size(97, 37);
+            PiBtn.Size = new Size(84, 28);
             PiBtn.TabIndex = 1;
             PiBtn.Text = "π\r\n";
             PiBtn.UseVisualStyleBackColor = true;
+            PiBtn.Click += PiBtn_Click;
             // 
             // NumericalApproximationMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 927);
+            ClientSize = new Size(825, 695);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "NumericalApproximationMenu";
             Text = "NumericalApproximation";
             tableLayoutPanel1.ResumeLayout(false);

@@ -37,6 +37,21 @@ namespace MathApp
             FadeOut(this);
         }
 
+        private void PiBtn_Click(object sender, EventArgs e)
+        {
+            var frm = new NumAppPi();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += (s, args) =>
+            {
+                this.Location = frm.Location;
+                FadeIn(this);
+                this.Show();
+            };
+            FadeIn(frm);
+            FadeOut(this);
+        }
+
         private void FadeIn(Form form, int duration = 300) // arra a helyre kene visszamennie ahol az elozot kinyomtak
         {
             form.Opacity = 0;
