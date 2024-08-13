@@ -276,10 +276,10 @@
             // yValueTextBox
             // 
             yValueTextBox.Anchor = AnchorStyles.Bottom;
-            yValueTextBox.Location = new Point(595, 27);
+            yValueTextBox.Location = new Point(565, 27);
             yValueTextBox.Name = "yValueTextBox";
             yValueTextBox.ReadOnly = true;
-            yValueTextBox.Size = new Size(100, 23);
+            yValueTextBox.Size = new Size(160, 23);
             yValueTextBox.TabIndex = 7;
             yValueTextBox.TabStop = false;
             yValueTextBox.TextAlign = HorizontalAlignment.Center;
@@ -287,10 +287,10 @@
             // xValueTextBox
             // 
             xValueTextBox.Anchor = AnchorStyles.Bottom;
-            xValueTextBox.Location = new Point(92, 27);
+            xValueTextBox.Location = new Point(62, 27);
             xValueTextBox.Name = "xValueTextBox";
             xValueTextBox.ReadOnly = true;
-            xValueTextBox.Size = new Size(100, 23);
+            xValueTextBox.Size = new Size(160, 23);
             xValueTextBox.TabIndex = 6;
             xValueTextBox.TabStop = false;
             xValueTextBox.TextAlign = HorizontalAlignment.Center;

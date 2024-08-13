@@ -89,7 +89,7 @@ namespace EquationSolverApp
             MessageBox.Show("Sorry, I could not find an integer solution.");
         }
 
-        private (bool, string) CheckInput(string text)
+        public static (bool, string) CheckInput(string text)
         {
             string[] expr = text.Split(' ');
             if(text.Contains("/ 0")) { return (false, "The equation has a division with zero."); }
@@ -118,7 +118,7 @@ namespace EquationSolverApp
             return (true, "");
         }
 
-        private bool IsWellParenthesized(string[] expr)
+        public static bool IsWellParenthesized(string[] expr)
         {
             Stack<char> V = new Stack<char>();
             for (int i = 0; i < expr.Length; ++i)
@@ -142,9 +142,9 @@ namespace EquationSolverApp
             return V.Count == 0;
         }
 
-        private bool IsInteger(string text) { int a; return int.TryParse(text, out a); }
+        public static bool IsInteger(string text) { int a; return int.TryParse(text, out a); }
 
-        private bool IsOperator(string text) { return (text == "-" || text == "+" || text == "*" || text == "/" || text == "^" || text == "(" || text == ")"); }
+        public static bool IsOperator(string text) { return (text == "-" || text == "+" || text == "*" || text == "/" || text == "^" || text == "(" || text == ")"); }
 
         private void textBox1_TextChanged(object sender, EventArgs e) // equation input
         {

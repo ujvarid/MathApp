@@ -26,7 +26,7 @@ namespace MathApp
         {
             double[,] matrix = new double[2, 3];
             double val;
-            if(double.TryParse(x1TextBox.Text, out val) && val != 0)
+            if (double.TryParse(x1TextBox.Text, out val) && val != 0)
             {
                 matrix[0, 0] = (double)val;
             }
@@ -46,7 +46,7 @@ namespace MathApp
                 return (false, null);
             }
 
-            if (double.TryParse(constant1TextBox.Text, out val) && val != 0)
+            if (double.TryParse(constant1TextBox.Text, out val))
             {
                 matrix[0, 2] = (double)val;
             }
@@ -76,7 +76,7 @@ namespace MathApp
                 return (false, null);
             }
 
-            if (double.TryParse(constant2TextBox.Text, out val) && val != 0)
+            if (double.TryParse(constant2TextBox.Text, out val))
             {
                 matrix[1, 2] = (double)val;
             }
@@ -91,7 +91,7 @@ namespace MathApp
 
         private void RowDivision(double[,] matrix, int rowNum, double divisor)
         {
-            if (divisor == 0)
+            if (divisor == 0) // akkor lehet 0, ha kiejti az y változót az első elimináció
             {
                 throw new Exception("Division by zero in row division!");
             }
@@ -116,7 +116,14 @@ namespace MathApp
             {
                 double pivot = matrix[k, k];
 
-                RowDivision(matrix, k, pivot);
+                try
+                {
+                    RowDivision(matrix, k, pivot);
+                }
+                catch (Exception)
+                {
+                    return ("There is no solution", "There is no solution");
+                }
 
                 for (int i = 0; i < 2; ++i)
                 {
@@ -127,7 +134,7 @@ namespace MathApp
                     }
                 }
             }
-            return (matrix[0,2].ToString(), matrix[1,2].ToString());
+            return (matrix[0, 2].ToString(), matrix[1, 2].ToString());
         }
 
 
@@ -135,9 +142,9 @@ namespace MathApp
         {
             // 1.: fill 2 * 3 matrix with variables + constants
 
-            (bool l, double[,] matrix) = FillMatrix(); 
+            (bool l, double[,] matrix) = FillMatrix();
 
-            if(!l)
+            if (!l)
             {
                 return;
             }

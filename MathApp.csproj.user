@@ -4,6 +4,12 @@
     <Compile Update="EquationSolver.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FunctionPlotting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Intro.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MatrixCalculator.cs">
       <SubType>Form</SubType>
     </Compile>

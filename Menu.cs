@@ -1,7 +1,7 @@
 using EquationSolverApp;
 
-namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni a gombokat, matrixot stb
-{ // controlbar off, back buttonnek lenne ertelme
+namespace MathApp 
+{
     public partial class Menu : Form
     {
         public Menu()
@@ -72,8 +72,21 @@ namespace MathApp // csak nagy monitoron szep, abszolut modon kell meghatarozni 
             FadeIn(frm);
             FadeOut(this);
         }
-
-        private void FadeIn(Form form, int duration = 300) // arra a helyre kene visszamennie ahol az elozot kinyomtak
+        private void FuncPlotBtn_Click(object sender, EventArgs e)
+        {
+            var frm = new FunctionPlotting();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += (s, args) =>
+            {
+                this.Location = frm.Location;
+                FadeIn(this);
+                this.Show();
+            };
+            FadeIn(frm);
+            FadeOut(this);
+        }
+        private void FadeIn(Form form, int duration = 300)
         {
             form.Opacity = 0;
             form.Show();

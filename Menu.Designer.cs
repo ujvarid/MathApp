@@ -72,15 +72,17 @@
             NumAppBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             TwoVarBtn = new Button();
+            FuncPlotBtn = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // EqSolBtn
             // 
             EqSolBtn.Anchor = AnchorStyles.Top;
-            EqSolBtn.Location = new Point(350, 3);
+            EqSolBtn.Location = new Point(306, 2);
+            EqSolBtn.Margin = new Padding(3, 2, 3, 2);
             EqSolBtn.Name = "EqSolBtn";
-            EqSolBtn.Size = new Size(219, 52);
+            EqSolBtn.Size = new Size(192, 39);
             EqSolBtn.TabIndex = 1;
             EqSolBtn.Text = "Equation Solver";
             EqSolBtn.UseVisualStyleBackColor = true;
@@ -89,9 +91,10 @@
             // MtClcBtn
             // 
             MtClcBtn.Anchor = AnchorStyles.Top;
-            MtClcBtn.Location = new Point(350, 193);
+            MtClcBtn.Location = new Point(306, 158);
+            MtClcBtn.Margin = new Padding(3, 2, 3, 2);
             MtClcBtn.Name = "MtClcBtn";
-            MtClcBtn.Size = new Size(219, 52);
+            MtClcBtn.Size = new Size(192, 39);
             MtClcBtn.TabIndex = 3;
             MtClcBtn.Text = "Matrix Calculator";
             MtClcBtn.UseVisualStyleBackColor = true;
@@ -100,10 +103,9 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F);
-            button2.Location = new Point(14, 16);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Location = new Point(12, 12);
             button2.Name = "button2";
-            button2.Size = new Size(74, 32);
+            button2.Size = new Size(65, 24);
             button2.TabIndex = 7;
             button2.TabStop = false;
             button2.Text = "Help";
@@ -113,9 +115,10 @@
             // NumAppBtn
             // 
             NumAppBtn.Anchor = AnchorStyles.Top;
-            NumAppBtn.Location = new Point(350, 285);
+            NumAppBtn.Location = new Point(306, 234);
+            NumAppBtn.Margin = new Padding(3, 2, 3, 2);
             NumAppBtn.Name = "NumAppBtn";
-            NumAppBtn.Size = new Size(219, 52);
+            NumAppBtn.Size = new Size(192, 39);
             NumAppBtn.TabIndex = 4;
             NumAppBtn.Text = "Numerical Approximations";
             NumAppBtn.UseVisualStyleBackColor = true;
@@ -125,38 +128,55 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(FuncPlotBtn, 0, 4);
             tableLayoutPanel1.Controls.Add(EqSolBtn, 0, 0);
             tableLayoutPanel1.Controls.Add(NumAppBtn, 0, 3);
             tableLayoutPanel1.Controls.Add(MtClcBtn, 0, 2);
             tableLayoutPanel1.Controls.Add(TwoVarBtn, 0, 1);
-            tableLayoutPanel1.Location = new Point(12, 282);
+            tableLayoutPanel1.Location = new Point(10, 212);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 92F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 122F));
-            tableLayoutPanel1.Size = new Size(919, 405);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 66F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.Size = new Size(804, 351);
             tableLayoutPanel1.TabIndex = 9;
             // 
             // TwoVarBtn
             // 
             TwoVarBtn.Anchor = AnchorStyles.Top;
-            TwoVarBtn.Location = new Point(350, 98);
+            TwoVarBtn.Location = new Point(306, 80);
+            TwoVarBtn.Margin = new Padding(3, 2, 3, 2);
             TwoVarBtn.Name = "TwoVarBtn";
-            TwoVarBtn.Size = new Size(219, 52);
+            TwoVarBtn.Size = new Size(192, 39);
             TwoVarBtn.TabIndex = 2;
             TwoVarBtn.Text = "Two Variable Equation Solver";
             TwoVarBtn.UseVisualStyleBackColor = true;
             TwoVarBtn.Click += TwoVarBtn_Click;
             // 
+            // FuncPlotBtn
+            // 
+            FuncPlotBtn.Anchor = AnchorStyles.Top;
+            FuncPlotBtn.Location = new Point(306, 300);
+            FuncPlotBtn.Margin = new Padding(3, 2, 3, 2);
+            FuncPlotBtn.Name = "FuncPlotBtn";
+            FuncPlotBtn.Size = new Size(192, 39);
+            FuncPlotBtn.TabIndex = 10;
+            FuncPlotBtn.Text = "Function Plotting";
+            FuncPlotBtn.UseVisualStyleBackColor = true;
+            FuncPlotBtn.Click += FuncPlotBtn_Click;
+            // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 927);
+            ClientSize = new Size(825, 695);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(button2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -171,5 +191,6 @@
         private Button NumAppBtn;
         private TableLayoutPanel tableLayoutPanel1;
         private Button TwoVarBtn;
+        private Button FuncPlotBtn;
     }
 }
