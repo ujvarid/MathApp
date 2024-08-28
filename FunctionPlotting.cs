@@ -9,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;  // nem szabadul fel memoria
 
-namespace MathApp  // ha meg lesz a dataY, akkor linearis keresessel adott intervallumon belul az osszes megoldast meg lehet adni
+namespace MathApp  //  bin mappa nem lett feltoltve kene x y tengely kiiras?
 {
     public partial class FunctionPlotting : Form
     {
@@ -57,9 +58,7 @@ namespace MathApp  // ha meg lesz a dataY, akkor linearis keresessel adott inter
             }
         }
 
-
-
-        private void EvaluatingFunction(List<string> expression, double[] dataX, double[] dataY)
+        private void EvaluatingFunction(List<string> expression, double[] dataX, double[] dataY) // nullaval osztas utan elbaszodik
         {
             int j = IVMIN;
             for (int i = 0; i < IVMAX * 2 + 1; i++) { dataX[i] = j; ++j; }
@@ -77,13 +76,16 @@ namespace MathApp  // ha meg lesz a dataY, akkor linearis keresessel adott inter
             {
                 try
                 {
-                    evalResult = EquationSolver.Evaluating(expressionConst, expression, j);
+                    evalResult = EquationSolver.Evaluating(expressionConst, expression, j); // vissza adhatna, hogy minusz vagy plusz vegtelen ( a szamlalo +/- )
                     ++j;
                     dataY[i] = evalResult;
                     divisionByZero = false;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    //dataY[i] = e.ToString()[e.ToString().Length - 1] == '+' ? 99999 : -99999;
+                    dataY[i] = 0;
+                    ++j;
                     continue;
                 }
             }
@@ -92,6 +94,11 @@ namespace MathApp  // ha meg lesz a dataY, akkor linearis keresessel adott inter
                 MessageBox.Show("The function has a division with zero.\n\nFor more, you can check the Help menu.");
                 return;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e) // help button
+        {
+            MessageBox.Show("Enter the function by separating every character with a whitespace.\n\nExample: ( x + x ^ 3 ) / ( 2 * 3 )");
         }
     }
 }

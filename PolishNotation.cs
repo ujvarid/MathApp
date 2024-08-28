@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks; 
-
-namespace EquationSolverApp
+using System.Threading.Tasks;
+    // (x-4) ^ 2 nem jo nem talal megoldast de jol plottolja páros kitevőre nem működik, páratlanra igen => mert az intervallum felezesnel nem talal negativ erteket
+   // de akkor az x^2 miert jo?
+  // mert akkor az a = 0 es ez veletlen mert akkor 0 az a ha nem talal placet where signs differ
+ // de ez esetben a brute force hogy lehet rossz, ha jol van abrazolva a plottingnal
+namespace EquationSolverApp 
 {
     public class PolishNotation
     {
@@ -45,17 +48,17 @@ namespace EquationSolverApp
                         break;
                     case "*":
                     case "/":
-                        while (V.Count() != 0 && V.Peek() != "(" && (V.Peek() == "*" || V.Peek() == "/" || V.Peek() == "^")) 
+                        while ((V.Count() != 0 && V.Peek() != "(") && (V.Peek() == "*" || V.Peek() == "/" || V.Peek() == "^")) 
                         {
                             result.Add(V.Pop());
                         }
                         V.Push(c);
                         break;
                     case "^":                                           
-                        while (V.Count() != 0 && V.Peek() != "(" && V.Peek() != "^")
-                        {
-                            result.Add(V.Pop());
-                        }
+                        //while (V.Count() != 0 && V.Peek() != "(" && V.Peek() != "^") nincs nála nagyobb prioritású operátor, ígyis úgyis emegy a stackbe
+                        //{
+                        //    result.Add(V.Pop());
+                        //}
                         V.Push(c);
                         break;
                     case "=":
@@ -136,7 +139,14 @@ namespace EquationSolverApp
                                 if (r == 0)
                                 {
                                     //MessageBox.Show("Error: Division by zero!"); // EZ ROSSZ, CSAK AKKOR KENE KIIRNI HA BENNE VAN, HOGY /0, HA VISZONT PÉLDÁUL /(X-1) AKKOR HA 1-HEZ ÉR AKKOR ÁT KÉNE UGRANIA, DE AZ A BAJ, HOGY A BOLZANO FELEZES CSAK FOLYTONOS FUGGVENYEN MUKODIK -> HA EZ VAN BRUTE FORCE KELL
-                                    throw new Exception("Division by zero");
+                                    if (l >= 0)
+                                    {
+                                        throw new Exception("Division by zero +");
+                                    }
+                                    else 
+                                    {
+                                        throw new Exception("Division by zero -");
+                                    }
                                 }
                                 V.Push(l / r);
                                 break;

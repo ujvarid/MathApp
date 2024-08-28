@@ -50,7 +50,7 @@ namespace EquationSolverApp
             }
         }
 
-        private void BruteForce(List<string> expression)
+        private static void BruteForce(List<string> expression)
         {
             bool divisionByZero = true;
             List<string> expressionConst = new();
@@ -61,17 +61,18 @@ namespace EquationSolverApp
             }
 
             double evalResult;
+            double epsilon = 1e-6; // Small value to account for near-zero solutions
 
             for (int i = IVMIN; i < IVMAX; i++)
             {
                 try
                 {
                     evalResult = Evaluating(expressionConst, expression, i);
-                    if (evalResult == 0)
+                    if (Math.Abs(evalResult) < epsilon)
                     {
                         string expr = "";
                         for (int j = 0; j < expressionConst.Count; j++) { expr += expressionConst[j]; }
-                        MessageBox.Show($"The equation:\n\n{expr} = 0\n\nThe solution: \n\nx = " + evalResult);
+                        MessageBox.Show($"The equation:\n\n{expr} = 0\n\nThe solution: \n\nx = " + i);
                         return;
                     }
                     divisionByZero = false;
@@ -81,13 +82,14 @@ namespace EquationSolverApp
                     continue;
                 }
             }
-            if (divisionByZero) 
+            if (divisionByZero)
             {
                 MessageBox.Show("The equation has a division with zero.\n\nFor more, you can check the Help menu.");
                 return;
             }
             MessageBox.Show("Sorry, I could not find an integer solution.");
         }
+
 
         public static (bool, string) CheckInput(string text)
         {
@@ -182,7 +184,9 @@ namespace EquationSolverApp
             {
                 if (a == 0 && Evaluating(expressionConst, expression, 0) != 0)
                 {
-                    MessageBox.Show($"Sorry, I could not find a solution given the interval [{IVMIN}, {IVMAX}]");
+                    MessageBox.Show("The function does not have a sign change within the given interval.\nResorting to brute force search.");
+                    BruteForce(expressionConst);
+                    return;
                 }
                 else
                 {

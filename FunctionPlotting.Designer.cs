@@ -64,6 +64,7 @@
             button2.TabStop = false;
             button2.Text = "Help";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // PlotBtn
             // 
